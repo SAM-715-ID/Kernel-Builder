@@ -1,13 +1,13 @@
 [
   {
     "kernelSource": {
-      "name": "Stormbreaker-Kernel",
-      "repo": "https://github.com/Chitransh193/Stormbeaker-RM6785-RUI2.0",
-      "branch": "main",
+      "name": "psionic-Kernel",
+      "repo": "https://github.com/Lastpickle/psionic-kernel",
+      "branch": "android-14",
       "device": "RM6785",
       "defconfig": "RM6785_defconfig"
     },
-    "withKernelSU": true,
+    "withKernelSU": false,
     "toolchains": [
       {
         "repo": "https://github.com/kdrag0n/proton-clang",

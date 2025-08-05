@@ -149,6 +149,27 @@ jobs:
           echo "PATH Variable: $PATH"
           make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
 
+      - name: "🔧 Enable KALLSYMS_ALL"
+        working-directory: ${{ env.KERNEL_NAME }}
+        env:
+          args: ${{ steps.generate-args.outputs.args }}
+        run: |
+          echo "🚀 Enabling KALLSYMS_ALL for better debugging support..."
+          
+          # Enable kallsyms and kallsyms_all using scripts/config
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_ALL
+          
+          # Optional: Enable additional debugging symbols
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_DEBUG_INFO
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_DEBUG_INFO_DWARF4
+          
+          # Update config to resolve dependencies
+          make ${{ env.args }} olddefconfig
+          
+          echo "=== KALLSYMS Configuration Applied ==="
+          grep -E "CONFIG_KALLSYMS|CONFIG_DEBUG_INFO" ${{ env.OUT_DIR }}/.config || true
+
       - name: "🎶 Build kernel"
         working-directory: ${{ env.KERNEL_NAME }}
         env:
@@ -160,15 +181,15 @@ jobs:
       - name: "✅ Verify KALLSYMS configuration"
         working-directory: ${{ env.KERNEL_NAME }}
         run: |
-         echo "=== KALLSYMS Verification ==="
-         if grep -q "CONFIG_KALLSYMS_ALL=y" ${{ env.OUT_DIR }}/.config; then
-         echo "✅ CONFIG_KALLSYMS_ALL=y is correctly set"
-         else
-         echo "❌ CONFIG_KALLSYMS_ALL is NOT set"
-         echo "--- Current KALLSYMS-related config ---"
-         grep KALLSYMS ${{ env.OUT_DIR }}/.config || true
-         exit 1  # fail the build so you know
-         fi
+          echo "=== KALLSYMS Verification ==="
+          if grep -q "CONFIG_KALLSYMS_ALL=y" ${{ env.OUT_DIR }}/.config; then
+            echo "✅ CONFIG_KALLSYMS_ALL=y is correctly set"
+          else
+            echo "❌ CONFIG_KALLSYMS_ALL is NOT set"
+            echo "--- Current KALLSYMS-related config ---"
+            grep KALLSYMS ${{ env.OUT_DIR }}/.config || true
+            exit 1  # fail the build so you know
+          fi
 
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v4

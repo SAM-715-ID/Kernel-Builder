@@ -157,6 +157,19 @@ jobs:
           echo "PATH Variable: $PATH"
           make ${args}
 
+      - name: "✅ Verify KALLSYMS configuration"
+        working-directory: ${{ env.KERNEL_NAME }}
+        run: |
+         echo "=== KALLSYMS Verification ==="
+         if grep -q "CONFIG_KALLSYMS_ALL=y" ${{ env.OUT_DIR }}/.config; then
+         echo "✅ CONFIG_KALLSYMS_ALL=y is correctly set"
+         else
+         echo "❌ CONFIG_KALLSYMS_ALL is NOT set"
+         echo "--- Current KALLSYMS-related config ---"
+         grep KALLSYMS ${{ env.OUT_DIR }}/.config || true
+         exit 1  # fail the build so you know
+         fi
+
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v4
         env:

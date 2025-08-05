@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "LPLUS-Kernel",
-      "repo": "https://github.com/Lastpickle/android_kernel_realme_mt6785",
-      "branch": "13.0",
+      "name": "AZRAEL-Kernel",
+      "repo": "https://github.com/AbzRaider/android_kernel_realme_RMX2001",
+      "branch": "R5-3",
       "device": "RMX2001",
-      "defconfig": "RM6785_defconfig"
+      "defconfig": "RMX2001_defconfig"
     },
     "withKernelSU": false,
     "toolchains": [

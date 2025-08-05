@@ -159,6 +159,7 @@ jobs:
           # Enable kallsyms and kallsyms_all using scripts/config
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_ALL
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KPROBES
           
           # Optional: Enable additional debugging symbols
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_DEBUG_INFO

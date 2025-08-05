@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "psionic-Kernel",
-      "repo": "https://github.com/AbzRaider/android_kernel_realme_RMX2001",
-      "branch": "R5-3",
+      "name": "LPLUS-Kernel",
+      "repo": "https://github.com/Lastpickle/android_kernel_realme_mt6785",
+      "branch": "13.0",
       "device": "RMX2001",
-      "defconfig": "RMX2001_defconfig"
+      "defconfig": "RM6785_defconfig"
     },
     "withKernelSU": false,
     "toolchains": [

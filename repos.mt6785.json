@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "LOS20-rui2-Kernel",
-      "repo": "https://github.com/realme-mt6785-devs/android_kernel_realme_mt6785",
-      "branch": "lineage-20",
+      "name": "b65_stock",
+      "repo": "https://github.com/realme-kernel-opensource/realme6-kernel-source",
+      "branch": "master",
       "device": "RMX2001",
-      "defconfig": "RM6785_defconfig"
+      "defconfig": "oppo6785_defconfig"
     },
     "withKernelSU": false,
     "toolchains": [

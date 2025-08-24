@@ -161,6 +161,9 @@ jobs:
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_ALL
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KPROBES
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_BASE_RELATIVE
+
+          # Disable lto
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --disable CONFIG_LTO_CLANG
           
           # Optional: Enable additional debugging symbols
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_DEBUG_INFO

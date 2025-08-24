@@ -160,6 +160,7 @@ jobs:
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_ALL
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KPROBES
+          ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_KALLSYMS_BASE_RELATIVE
           
           # Optional: Enable additional debugging symbols
           ./scripts/config --file ${{ env.OUT_DIR }}/.config --enable CONFIG_DEBUG_INFO

@@ -48,6 +48,7 @@ jobs:
       KERNEL_DEVICE: ${{ matrix.repos.kernelSource.device }}
 
       DEFCONFIG_NAME: ${{ matrix.repos.kernelSource.defconfig }}
+      SECOND_DEFCONFIG: ${{ matrix.repos.kernelSource.second_defconfig }}
 
       withKernelSU: ${{ matrix.repos.withKernelSU }}
       useAnykernel: ${{ matrix.repos.AnyKernel3.use }}

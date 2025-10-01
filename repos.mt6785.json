@@ -1,12 +1,12 @@
 [
   {
     "kernelSource": {
-      "name": "c18-FOR-AP",
-      "repo": "https://github.com/realme-kernel-opensource/realme_realme6-AndroidR-kernel-source",
-      "branch": "master",
+      "name": "bolt for ap test",
+      "repo": "https://github.com/Lastpickle/Bolt_kernel",
+      "branch": "13.0",
       "device": "RMX2001",
-      "defconfig": "oppo6785_defconfig",
-      "second_defconfig": "another_device_defconfig"
+      "defconfig": "RM6785_defconfig",
+      "second_defconfig": "rui1-neural_defconfig"
     },
     "withKernelSU": false,
     "toolchains": [

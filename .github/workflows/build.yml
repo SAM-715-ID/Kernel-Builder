@@ -194,6 +194,7 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
+          make mrproper
           export KBUILD_BUILD_USER="Attack_Helicopter"
           export KBUILD_BUILD_HOST="BystanderforU"
           echo "PATH Variable: $PATH"

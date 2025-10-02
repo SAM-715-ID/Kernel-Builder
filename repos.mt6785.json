@@ -2,8 +2,8 @@
   {
     "kernelSource": {
       "name": "bolt-for-ap-test",
-      "repo": "https://github.com/Lastpickle/Bolt_kernel",
-      "branch": "13.0",
+      "repo": "https://github.com/Lastpickle/Los-og-kernel-forked",
+      "branch": "lineage-20",
       "device": "RMX2001",
       "defconfig": "RM6785_defconfig",
       "second_defconfig": "rui1-neural_defconfig"

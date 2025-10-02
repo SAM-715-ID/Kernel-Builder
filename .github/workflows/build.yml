@@ -150,18 +150,6 @@ jobs:
           echo "PATH Variable: $PATH"
           make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
 
-      - name: "➕ Merge second defconfig"
-        if: ${{ env.SECOND_DEFCONFIG != '' }}
-        working-directory: ${{ env.KERNEL_NAME }}
-        env:
-          args: ${{ steps.generate-args.outputs.args }}
-          second_defconfig: ${{ matrix.repos.kernelSource.second_defconfig }}
-        run: |
-          echo "Merging $second_defconfig into base config..."
-          cp ${{ env.OUT_DIR }}/.config base.config
-          scripts/kconfig/merge_config.sh -m base.config arch/${{ steps.generate-args.outputs.ARCH }}/configs/$second_defconfig
-          make ${{ env.args }} olddefconfig
-
 
       - name: "🔧 Enable KALLSYMS_ALL"
         working-directory: ${{ env.KERNEL_NAME }}
@@ -188,6 +176,19 @@ jobs:
           
           echo "=== KALLSYMS Configuration Applied ==="
           grep -E "CONFIG_KALLSYMS|CONFIG_DEBUG_INFO" ${{ env.OUT_DIR }}/.config || true
+
+      - name: "➕ Merge second defconfig"
+        if: ${{ env.SECOND_DEFCONFIG != '' }}
+        working-directory: ${{ env.KERNEL_NAME }}
+        env:
+          args: ${{ steps.generate-args.outputs.args }}
+          second_defconfig: ${{ matrix.repos.kernelSource.second_defconfig }}
+        run: |
+          echo "Merging $second_defconfig into base config..."
+          cp ${{ env.OUT_DIR }}/.config base.config
+          scripts/kconfig/merge_config.sh -m base.config arch/${{ steps.generate-args.outputs.ARCH }}/configs/$second_defconfig
+          make ${{ env.args }} olddefconfig
+
 
       - name: "🎶 Build kernel"
         working-directory: ${{ env.KERNEL_NAME }}

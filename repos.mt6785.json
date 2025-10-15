@@ -2,7 +2,7 @@
   {
     "kernelSource": {
       "name": "bolt-for-ap-test",
-      "repo": "https://github.com/Lastpickle/Bolt-kernel",
+      "repo": "https://github.com/Lastpickle/Bolt_kernel",
       "branch": "14.0",
       "device": "RMX2001",
       "defconfig": "RM6785_defconfig",

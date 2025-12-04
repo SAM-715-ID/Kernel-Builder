@@ -139,7 +139,7 @@ jobs:
           # patch Syscall hooks 1.4
           curl -Ls https://github.com/ximi-mojito-test/mojito_krenol/commit/1a7504ce88a6f9d6a52feb881421e587181380c0.patch | patch -p1 -F 3
 
-          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           # wild ksu manager
           cd ./KernelSU-Next
           curl -Ls https://raw.githubusercontent.com/WildKernels/kernel_patches/refs/heads/main/next/susfs_fix_patches/stable/v1.5.12/fix_apk_sign.c.patch | patch -p1 -F 3

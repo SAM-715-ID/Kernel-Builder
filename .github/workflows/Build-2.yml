@@ -137,11 +137,12 @@ jobs:
             rm -rf "./drivers/kernelsu"
           fi
           # patch Syscall hooks 1.4
-          curl -Ls https://raw.githubusercontent.com/WildKernels/kernel_patches/refs/heads/main/next/scope_min_manual_hooks_v1.4.patch | patch -p1 -F 3
+          curl -Ls https://raw.githubusercontent.com/KernelSU-Next/kernel_patches/refs/heads/main/syscall_hook/min_scope_syscall_hooks_v1.4.patch | patch -p1 -F 3
+
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
           # wild ksu manager
           curl -Ls https://github.com/sidex15/KernelSU-Next/commit/c38135d8d57ef91d3f2e08d62df5c5cd2ad48b50.patch | patch -p1 -F 3
-          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
-
+          
           cat arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
 
       - name: "👍 Make defconfig"

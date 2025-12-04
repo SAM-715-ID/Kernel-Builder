@@ -141,8 +141,9 @@ jobs:
 
           curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -
           # wild ksu manager
+          cd ./KernelSU-Next
           curl -Ls https://raw.githubusercontent.com/WildKernels/kernel_patches/refs/heads/main/next/susfs_fix_patches/stable/v1.5.12/fix_apk_sign.c.patch | patch -p1 -F 3
-          
+          cd ./
           cat arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
 
       - name: "👍 Make defconfig"

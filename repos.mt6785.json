@@ -1,18 +1,18 @@
 [
   {
     "kernelSource": {
-      "name": "bolt-for-ap-test",
-      "repo": "https://github.com/realme-mt6785-devs/android_kernel_realme_mt6785",
-      "branch": "lineage-20-backup",
+      "name": "bolt_with_wksun",
+      "repo": "https://github.com/prathsprjkt/android_kernel_realme_mt6785",
+      "branch": "13.0",
       "device": "RMX2001",
-      "defconfig": "oppo6785_defconfig",
+      "defconfig": "RM6785_defconfig",
       "second_defconfig": ""
     },
-    "withKernelSU": false,
+    "withKernelSU": true,
     "toolchains": [
       {
-        "repo": "https://github.com/kdrag0n/proton-clang",
-        "branch": "master",
+        "repo": "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379",
+        "branch": "15.0",
         "name": "proton-clang",
         "binPath": ["./bin"]
       }

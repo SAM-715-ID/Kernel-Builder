@@ -12,7 +12,7 @@
     "toolchains": [
       {
         "repo": "https://gitlab.com/DR-KernelArchive/clang/r563880",
-        "branch": "15.0",
+        "branch": "main",
         "name": "proton-clang",
         "binPath": ["./bin"]
       }

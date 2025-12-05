@@ -1,14 +1,14 @@
 [
   {
     "kernelSource": {
-      "name": "bolt_with_wksun",
-      "repo": "https://github.com/prathsprjkt/android_kernel_realme_mt6785",
-      "branch": "13.0",
-      "device": "RMX2001",
-      "defconfig": "RM6785_defconfig",
-      "second_defconfig": ""
+      "name": "Bekicot",
+      "repo": "https://github.com/SAM-715-ID/kernel_samsung_sm7150",
+      "branch": "Bekicot",
+      "device": "a71",
+      "defconfig": "sdmmagpie_defconfig",
+      "second_defconfig": "a71.config"
     },
-    "withKernelSU": true,
+    "withKernelSU": false,
     "toolchains": [
       {
         "repo": "https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379",
@@ -40,8 +40,8 @@
     "AnyKernel3": {
       "use": true,
       "release": true,
-      "repo": "https://github.com/Lastpickle/AK3",
-      "branch": "takoyaki"
+      "repo": "https://github.com/SAM-715-ID/AnyKernel3",
+      "branch": "a71"
     }
   }
 ]
